@@ -7,125 +7,28 @@
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" type="text/css" href="stylesheet.css">
         <script src="http://yui.yahooapis.com/3.13.0/build/yui/yui-min.js"></script>
-        <script>
-            
-            YUI().use('node', 'yql', function(Y) {
-    
-    var res = Y.one('#present'),
-        res1=Y.one('#locationid'),
-        res2=Y.one('#dayplace'),
-        res3=Y.one('#day1'),
-        res4=Y.one('#day2'),
-        res5=Y.one('#day3'),
-        res6=Y.one('#day4'),
-        res7=Y.one('#day5'),
-        zip = '2295420';
-    
-    Y.YQL('select * from weather.forecast where woeid=' + zip+ " and u='c'", function(r) {
-        var e2=Y.Node.create('<div class="mod1"></div>');
-        var date=r.query.results.channel.item.condition.date;
-        var time=date.substring(17,25);
-        var day=date.substring(0,7);
-        
-        var city=r.query.results.channel.location.region;
-        var country=r.query.results.channel.location.country;
-        var temp=r.query.results.channel.item.condition.temp;
-        var windspeed=r.query.results.channel.wind.speed;
-        var text=r.query.results.channel.item.condition.text;
-        var textpr=r.query.results.channel.item.condition.text;
-        //days
-        var day1=r.query.results.channel.item.forecast[0].day;
-        var day2=r.query.results.channel.item.forecast[1].day;
-        var day3=r.query.results.channel.item.forecast[2].day;
-        var day4=r.query.results.channel.item.forecast[3].day;
-        var day5=r.query.results.channel.item.forecast[4].day;
-        //temperatures
-        var temp1=r.query.results.channel.item.forecast[0].high;
-        var temp2=r.query.results.channel.item.forecast[1].high;
-        var temp3=r.query.results.channel.item.forecast[2].high;
-        var temp4=r.query.results.channel.item.forecast[3].high;
-        var temp5=r.query.results.channel.item.forecast[4].high;
-        //text(cloudy or sunny ...)
-        var text1=r.query.results.channel.item.forecast[0].text;
-        var text2=r.query.results.channel.item.forecast[1].text;
-        var text3=r.query.results.channel.item.forecast[2].text;
-        var text4=r.query.results.channel.item.forecast[3].text;
-        var text5=r.query.results.channel.item.forecast[4].text;
-       
-        
-            textpr='<i class="climacon-sun"></i>';
-            text1='<i class="climacon-cloud"></i>';
-            text2='<i class="climacon-cloud"></i>';
-            text3='<i class="climacon-cloud"></i>';
-            text4='<i class="climacon-lightning-cloud"></i>';
-            text5='<i class="climacon-cloud"></i>';
-           
-        e2.set('innerHTML','<i class="climacon-compass" id="loccompass"></i><br><h7>'+city+','+country+'<br>'+time);
-        res1.setHTML(e2);
-        
-        var e1 = Y.Node.create('<div class="mod"></div>');
-       e1.set('innerHTML', '<div id="temptext"> ' + temp+ '<sup>&deg'+textpr+'</div><br><div id=dateandspd"><h7 id="tempdaytext">' +day+'</h7></div><div><i id="windpeed" class="climacon-wind"></i></div><div id="spdwndkmph">'+windspeed+' kmph</div></h7></div>');
-        res.setHTML(e1);
-        
-         var e3 = Y.Node.create('<div id="dayid1" class="dayid-1"></div>');
-          e3.set('innerHTML', '<br><br><h7 id="prday"> ' +day1+'</h7><br><h7 id="prtext">' +text1+'</h7><br><h7 id="prspd">'+temp1+'<sup>&deg</h7>');
-        res3.setHTML(e3);
-        
-        var e4 = Y.Node.create('<div id="dayid2" class="dayid-1"></div>');
-          e4.set('innerHTML', '<br><br><h7 id="prday"> ' +day2+'</h7><br><h7 id="prtext">' +text2+'</h7><br><h7 id="prspd">'+temp2+'<sup>&deg</h7>');
-        res4.setHTML(e4);
-        
-        var e5 = Y.Node.create('<div id="dayid3" class="dayid-1"></div>');
-          e5.set('innerHTML', '<br><br><h7 id="prday"> ' +day3+'</h7><br><h7 id="prtext">' +text3+'</h7><br><h7 id="prspd">'+temp3+'<sup>&deg</h7>');
-        res5.setHTML(e5);
-        
-        var e6 = Y.Node.create('<div id="dayid4" class="dayid-1"></div>');
-          e6.set('innerHTML', '<br><br><h7 id="prday"> ' +day4+'</h7><br><h7 id="prtext">' +text4+'</h7><br><h7 id="prspd">'+temp4+'<sup>&deg</h7>');
-        res6.setHTML(e6);
-        
-        var e7 = Y.Node.create('<div id="dayid5" class="dayid-1"></div>');
-          e7.set('innerHTML', '<br><br><h7 id="prday"> ' +day5+'</h7><br><h7 id="prtext">' +text5+'</h7><br><h7 id="prspd">'+temp5+'<sup>&deg</h7>');
-        res7.setHTML(e7);
-    });
-});
-
-            </script>
+        <script src="http://yui.yahooapis.com/3.13.0/build/yui/yui-min.js"></script>
+        <script type="text/javascript" src="Script.js"></script>
     </head>
     <body class="mainbody" >
         
         <div id="weatherbody" class="weather-body">
         <div id="wallpaper" class="wallpaper_back">
             <div id="locationtext" class="location-text">
-                <input type="text" name="search" onclick="searchloc(event)" class="searchlocation" value="Bangalore">
-                <i class="icon-cloud"></i> 
+                <label id="locationname">Bangalore</label>
             </div>
-            <div id="locationid" class="location-id">
-                
-            </div>
+            <div id="locationid" class="location-id"></div>
         </div>
         <div id="weatherlist" class="weather-list">
-            <div id="present" class="weather-content">
-                
-                
-            </div>
-            <div id="day1" class="day-1">
-                
-            </div>
-            <div id="day2" class="day-2">
-                
-            </div>
-            <div id="day3" class="day-3">
-                
-            </div>
-            <div id="day4" class="day-4">
-                
-            </div>
-            <div id="day5" class="day-5">
-                
-            </div>
+            <div id="present" class="weather-content"></div>
+            <div id="dayscon" class="days_con">
+                <div id="day1" class="day"></div>
+                <div id="day2" class="day"></div>
+                <div id="day3" class="day"></div>
+                <div id="day4" class="day"></div>
+                <div id="day5" class="day"></div>
+            </div>    
         </div> 
         </div>
-        
-        <script type="text/javascript" src="Script.js"></script>
     </body>
 </html>
