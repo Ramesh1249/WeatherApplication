@@ -263,6 +263,7 @@ YUI().use('node', 'yql','json-parse', function(Y) {
         }
         
         //days
+        
         var day1=r.query.results.channel.item.forecast[0].day;
         var day2=r.query.results.channel.item.forecast[1].day;
         var day3=r.query.results.channel.item.forecast[2].day;

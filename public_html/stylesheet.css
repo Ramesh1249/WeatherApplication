@@ -502,6 +502,7 @@ body
     display: inline-block;
     position: absolute;
     width: 125px;
+    font-size: 105px;
 }
 #locationtext
 {
