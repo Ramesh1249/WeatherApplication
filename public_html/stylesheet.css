@@ -356,8 +356,8 @@ body
 
 .weather-content
 {
-    /* margin: auto; */
-    height: 100%;
+    margin: auto;
+    /* height: 100%; */
     background-color: #000000;
     display: inline-block;
     letter-spacing: normal;
@@ -431,7 +431,7 @@ body
     font-size: 17px;
     background-color: #302D2D;
     text-align: center;
-    margin-right: 40px;
+    
     border-radius: 9px;  
     opacity: 0.6;
     color: #FFFFFF;
@@ -442,7 +442,6 @@ body
 {
     margin: auto;
     line-height: 76px;
-    margin-right: 26px;
     height: 45px;
     width: 90%;
     text-align: center;
@@ -453,7 +452,6 @@ body
 {
     margin: auto;
     line-height: 45px;
-    margin-right: 25px;
     text-align: center;
     width: 87%;
 }
@@ -476,7 +474,7 @@ body
 {
     height: 69%;
     margin-top: 41px;
-    padding-left: 38px;
+  
 }
 .days_con{
     display: inline-block;
