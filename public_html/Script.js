@@ -1,238 +1,284 @@
-            
+
+
+
+var recloc;
+function recloc(event){
+  document.getElementById('locationlist').style.display="block";
+  document.getElementById('reclocations').style.display="none";
+}
+var locout;
+function locout(x){
+  document.getElementById('locationlist').style.display="none";
+  document.getElementById('reclocations').style.display="block";
+  document.getElementById('add1').style.display="none"; 
+}
+var addloc;
+function addloc(event){
+  document.getElementById('locationlist').style.display="block";
+
+  
+}
+
+var addlocations;
+var varaible1;
+function addlocations(event){
+varaible1=document.getElementById('addlocsearch').value;
+
+}
+
+
+
+var tb;
+var add;
+function add(event){
+tb=document.getElementById('addlocsearch').value;
+var c=document.createElement(li);
+c.innerHTML=tb;
+document.getElementById('listofloc').innerHTML=c;
+
+
+         
 YUI().use('node', 'yql','json-parse', function(Y) { 
  var JSONObject = {
                      "0":{
-
+                              "tags":"rainy",
                              "class":"<i class='climacon tornado'></i>"
                           },
 
                      "1":{
-
+                              "tags":"rainy",
                              "class":"<i class='climacon lightning'></i>"
                           },
 
                      "2":{
-
+                              "tags":"rainy",
                              "class":"<i class='climacon tornado'></i>"
                           },
                       "3":{
-
+                              "tags":"rainy",
                              "class":"<i class='climacon lightning'></i>"
                           },
 
                      "4":{
-
+                              "tags":"rainy",
                              "class":"<i class='climacon lightning'></i>"
                           },
 
                      "5":{
-
+                              "tags":"snow",
                              "class":"<i class='climacon snow'></i>"
                           },
                      "6":{
-
+                              "tags":"cloudy",
                              "class":"<i class='climacon hail'></i>"
                           },
 
                      "7":{
-
+                              "tags":"cloudy",
                              "class":"<i class='climacon sleet'></i>"
                           },
 
                      "8":{
-
+                              "tags":"snow",
                              "class":"<i class='climacon snow'></i>"
                           },
 
                      "9":{
-
+                              "tags":"rainy",
                              "class":"<i class='climacon drizzle'></i>"
                           },
 
                      "10":{
-
+                              "tags":"rainy",
                              "class":"<i class='climacon rain'></i>"
                           },
 
                      "11":{
-
+                              "tags":"rainy",
                              "class":"<i class='climacon showers'></i>"
                           },
 
                      "12":{
-
+                              "tags":"rainy",
                              "class":"<i class='climacon showers'></i>"
                           },
 
                      "13":{
-
+                              "tags":"rainy",
                              "class":"<i class='climacon flurries'></i>"
                           },
 
                      "14":{
-
+                              "tags":"rainy",
                              "class":"<i class='climacon showers'></i>"
                           },
 
                      "15":{
-
+                              "tags":"cloudy",
                              "class":"<i class='climacon snow'></i>"
                           },
 
                      "16":{
-
+                              "tags":"cloudy",
                              "class":"<i class='climacon snow'></i>"
                           },
 
                      "17":{
-
+                              "tags":"clear",
                              "class":"<i class='climacon hail'></i>"
                           },
                      "18":{
-
+                              "tags":"clear",
                              "class":"<i class='climacon sleet'></i>"
                           },
 
                      "19":{
-
+                              "tags":"cloudy",
                              "class":"<i class='climacon fog'></i>"
                           },
 
                      "20":{
-
+                              "tags":"cloudy",
                              "class":"<i class='climacon fog'></i>"
                           },
                      "21":{
-
+                              "tags":"clear",
                              "class":"<i class='climacon haze'></i>"
                           },
 
                      "22":{
-
+                              "tags":"clear",
                              "class":"<i class='climacon haze'></i>"
                           },
 
                      "23":{
-
+                              "tags":"clear",
                              "class":"<i class='climacon haze'></i>"
                           },
                      "24":{
-
+                              "tags":"cloudy",
                              "class":"<i class='climacon wind cloud'></i>"
                           },
 
                      "25":{
-
+                              "tags":"snow",
                              "class":"<i class='climacon snow'></i>"
                           },
 
                      "26":{
-
+                              "tags":"cloudy",
                              "class":"<i class='climacon cloud'></i>"
                           },
                      "27":{
-
+                              "tags":"cloudy,night",
                              "class":"<i class='climacon cloud moon'></i>"
                           },
 
                      "28":{
-
+                              "tags":"cloudy,sunny",
                              "class":"<i class='climacon cloud sun'></i>"
                           },
 
                      "29":{
-
+                              "tags":"night",
                              "class":"<i class='climacon cloud moon'></i>"
                           },
                      "30":{
-
+                              "tags":"cloudy,sunny",
                              "class":"<i class='climacon cloud sun'></i>"
                           },
 
                      "31":{
-
+                              "tags":"night",
                              "class":"<i class='climacon moon'></i>"
                           },
 
                      "32":{
-
+                              "tags":"sunny",
                              "class":"<i class='climacon sun'></i>"
                           },
 
                      "33":{
-
+                              "tags":"night",
                              "class":"<i class='climacon moon'></i>"
                           },
 
                      "34":{
-
+                              "tags":"day",
                              "class":"<i class='climacon sun'></i>"
                           },
                      "35":{
-
+                              "tags":"clear",
                              "class":"<i class='climacon hail'></i>"
                           },
 
                      "36":{
-
+                              "tags":"day",
                              "class":"<i class='climacon sun'></i>"
                           },
 
                      "37":{
-
+                              "tags":"rainy",
                              "class":"<i class='climacon lightning'></i>"
                           },
                      "38":{
-
+                              "tags":"rainy",
                              "class":"<i class='climacon lightning'></i>"
                           },
 
                      "39":{
-
+                              "tags":"rainy",
                              "class":"<i class='climacon lightning'></i>"
                           },
 
                      "40":{
-
+                              "tags":"rainy",
                              "class":"<i class='climacon showers'></i>"
                           },
                       "41":{
-
+                              "tags":"snow",
                              "class":"<i class='climacon snow'></i>"
                           },
 
                      "42":{
-
+                              "tags":"cloudy",
                              "class":"<i class='climacon snow'></i>"
                           },
 
                      "43":{
-
+                              "tags":"cloudy",
                              "class":"<i class='climacon snow'></i>"
                           },
 
 
 
                      "44":{
-
+                              "tags":"cloudy",
                              "class":"<i class='climacon cloud'></i>"
                           },
                      "45":{
-
+                              "tags":"cloudy",
                              "class":"<i class='climacon lightning'></i>"
                           },
 
                      "46":{
-
+                              "tags":"cloudy",
                              "class":"<i class='climacon snow'></i>"
                           },
 
                      "47":{
-
+                              "tags":"rainy",
                              "class":"<i class='climacon lightning'></i>"
+                          },
+
+                    "3200":{
+                             "tags":"clear",
+                             "class":"<i class='climacon cloud'></i>"
                           }
 
                  };
+
+
                     
     var res = Y.one('#present'),
         res1=Y.one('#locationid'),
@@ -241,14 +287,60 @@ YUI().use('node', 'yql','json-parse', function(Y) {
         res4=Y.one('#day2'),
         res5=Y.one('#day3'),
         res6=Y.one('#day4'),
-        res7=Y.one('#day5'),
-        zip = '2295420';
-    
-    Y.YQL('select * from weather.forecast where woeid=' + zip+ " and u='c'", function(r) {
+        res7=Y.one('#day5');
+        
+        Y.YQL('select * from geo.places where text="'+tb+'"',function(r){
+      var woeid;
+      var content;
+      if (r.query.results==null) {
+        document.getElementById('locationlist').style.display="block";
+        document.getElementById('errorloc').style.display="block";
+        document.getElementById('reclocations').style.display="none";
+        
+        document.getElementById('addlocsearch').value="search";
+        window.setTimeout(function(){
+document.getElementById('errorloc').style.display="none";},3000);
+
+
+      }else
+      {
+        document.getElementById('locationlist').style.display="none";
+document.getElementById('reclocations').style.display="block";
+
+      }
+
+      if(r.query.results.place[0])
+      {
+        woeid = r.query.results.place[0].woeid;
+        if(r.query.results.place[0].admin2!=null)
+        {
+          content=r.query.results.place[0].admin2.content;
+        }
+        else if (r.query.results.place[0].admin1!=null)
+        {
+          content=r.query.results.place[0].admin1.content;
+        }else
+        {
+          woeid = r.query.results.place[0].country.woeid;
+          content = r.query.results.place[0].content;
+        }
+      }
+      else {
+        woeid = r.query.results.place.woeid;
+      }
+
+          
+            
+                 
+
+  
+
+    Y.YQL('select * from weather.forecast where woeid=' + woeid+ " and u='c'", function(r) {
         var e2=Y.Node.create('<div class="mod1"></div>');
         var date=r.query.results.channel.item.condition.date;
         var time=date.substring(17,25);
         var day=date.substring(0,7);
+        var citys=r.query.results.channel.location.city;
         
         var city=r.query.results.channel.location.region;
         var country=r.query.results.channel.location.country;
@@ -260,88 +352,129 @@ YUI().use('node', 'yql','json-parse', function(Y) {
         if(JSONObject[codepr])
         {
            var textprs=JSONObject[codepr].class;
+           var textcon=JSONObject[codepr].tags;
+        }
+        document.getElementById('locsearch').value=citys;
+
+         Y.YQL('select source,photo_id from flickr.photos.sizes where photo_id in (select id from flickr.photos.search where has_geo="true" and tags="'+textcon+'" and woe_id='+woeid+' and api_key="8a976c10ca749ae611e2a3ca9f0e7c9c" and group_id ="1463451@N25") and api_key="8a976c10ca749ae611e2a3ca9f0e7c9c"', function(r) {    
+                if(r.query.results!=null){                    
+             var img=r.query.results.size[07].source;
+             
+             Y.one('.mainbody').setStyle('background-image','url('+img+')');
+             Y.one('#wallpaper').setStyle('background-image','url('+img+')');
+           }else
+           {
+               Y.YQL('select source,photo_id from flickr.photos.sizes where photo_id in (select id from flickr.photos.search where has_geo="true" and tags="'+textcon+'" and text="'+content+'" and api_key="8a976c10ca749ae611e2a3ca9f0e7c9c" and group_id ="1463451@N25") and api_key="8a976c10ca749ae611e2a3ca9f0e7c9c"', function(r) {    
+                 var img=r.query.results.size[07].source;
+             
+             Y.one('.mainbody').setStyle('background-image','url('+img+')');
+             Y.one('#wallpaper').setStyle('background-image','url('+img+')');
+               }); 
+           }
+    });
+
+
+
+
+         //days
+        var i;
+        var days=[];
+        var temps=[];
+        var lows=[];
+        var texts=[];
+        var codes=[];
+        var conicons=[];
+        
+        
+
+        for(i=0;i<5;i++){
+            
+            days.push(r.query.results.channel.item.forecast[i].day);
+            
+            
         }
         
-        //days
+        for(i=0;i<5;i++){
+            
+            temps.push(r.query.results.channel.item.forecast[i].high);
+            
+        }
         
-        var day1=r.query.results.channel.item.forecast[0].day;
-        var day2=r.query.results.channel.item.forecast[1].day;
-        var day3=r.query.results.channel.item.forecast[2].day;
-        var day4=r.query.results.channel.item.forecast[3].day;
-        var day5=r.query.results.channel.item.forecast[4].day;
-        //temperatures..... high
-        var temp1=r.query.results.channel.item.forecast[0].high;
-        var temp2=r.query.results.channel.item.forecast[1].high;
-        var temp3=r.query.results.channel.item.forecast[2].high;
-        var temp4=r.query.results.channel.item.forecast[3].high;
-        var temp5=r.query.results.channel.item.forecast[4].high;
-        //temperatures.....low
-        var low1=r.query.results.channel.item.forecast[0].low;
-        var low2=r.query.results.channel.item.forecast[0].low;
-        var low3=r.query.results.channel.item.forecast[0].low;
-        var low4=r.query.results.channel.item.forecast[0].low;
-        var low5=r.query.results.channel.item.forecast[0].low;
-        //text(cloudy or sunny ...)
-        var text1=r.query.results.channel.item.forecast[0].text;
-        var text2=r.query.results.channel.item.forecast[1].text;
-        var text3=r.query.results.channel.item.forecast[2].text;
-        var text4=r.query.results.channel.item.forecast[3].text;
-        var text5=r.query.results.channel.item.forecast[4].text;
-        //weather condition codes..
-        var code1=r.query.results.channel.item.forecast[0].code;
-        var code2=r.query.results.channel.item.forecast[1].code;
-        var code3=r.query.results.channel.item.forecast[2].code;
-        var code4=r.query.results.channel.item.forecast[3].code;
-        var code5=r.query.results.channel.item.forecast[4].code;
+        for(i=0;i<5;i++){
+            
+            lows.push(r.query.results.channel.item.forecast[i].low);
+            
+        }
         
+        for(i=0;i<5;i++){
+            
+            texts.push(r.query.results.channel.item.forecast[i].text);
+            
+        }
+        for(i=0;i<5;i++){
+            
+            codes.push(r.query.results.channel.item.forecast[i].code);
+            
+        }
+        
+       
        // mapping codes..
-     if(JSONObject[code1])
+       for(var i=0;i<5;i++)
+       {
+          if(JSONObject[codes[i]])
         {
-           var conicon1=JSONObject[code1].class;
+           conicons.push(JSONObject[codes[i]].class);
         }
-        if(JSONObject[code2])
-        {
-           var conicon2=JSONObject[code2].class;
-        }
-        if(JSONObject[code3])
-        {
-           var conicon3=JSONObject[code3].class;
-        }
-        if(JSONObject[code4])
-        {
-           var conicon4=JSONObject[code4].class;
-        }
-        if(JSONObject[code5])
-        {
-           var conicon5=JSONObject[code5].class;
-        }
+       }
+
+
 
            
-        e2.set('innerHTML','<i class="climacon compass" id="loccompass"></i><br><h7>'+city+','+country+'<br>'+time);
+        e2.set('innerHTML','<i class="climacon compass" id="loccompass"></i><br><h7>'+city+' '+country+'<br>'+time);
         res1.setHTML(e2);
         
+
+
+
+
         var e1 = Y.Node.create('<div class="mod"></div>');
        e1.set('innerHTML', '<div id="temptext1"><div id="temptext"> ' + temp+ '<sup>&deg</div><div id="textcond" title="'+textpr+'">'+textprs+'</div></div><div id="dateandspd"><div id="tempdaytext">' +day+'</div><div id="spdwndkmph"> <span id="spdicon" class="climacon wind"></span><span id="spdmtr">'+windspeed+' kmph</span></div></h7></div></div>');
         res.setHTML(e1);
         
          var e3 = Y.Node.create('<div id="dayid1" class="dayid-1"></div>');
-          e3.set('innerHTML', '<div id="prday"> ' +day1+'</div><div id="prtext" title="'+text1+'">' +conicon1+'</div><div id="prspd">'+temp1+'<sup>&deg</sup>/'+low1+'<sup>&deg</div>');
+          e3.set('innerHTML', '<div id="prday"> ' +days[0]+'</div><div id="prtext" title="'+texts[0]+'">' +conicons[0]+'</div><div id="prspd">'+temps[0]+'<sup>&deg</sup>/'+lows[0]+'<sup>&deg</div>');
         res3.setHTML(e3);
         
         var e4 = Y.Node.create('<div id="dayid2" class="dayid-1"></div>');
-          e4.set('innerHTML', '<div id="prday"> ' +day2+'</div><div id="prtext" title="'+text2+'">' +conicon2+'</div><div id="prspd">'+temp2+'<sup>&deg</sup>/'+low2+'<sup>&deg</div>');
+          e4.set('innerHTML', '<div id="prday"> ' +days[1]+'</div><div id="prtext" title="'+texts[1]+'">' +conicons[1]+'</div><div id="prspd">'+temps[1]+'<sup>&deg</sup>/'+lows[1]+'<sup>&deg</div>');
         res4.setHTML(e4);
         
         var e5 = Y.Node.create('<div id="dayid3" class="dayid-1"></div>');
-          e5.set('innerHTML', '<div id="prday"> ' +day3+'</div><div id="prtext" title="'+text3+'">' +conicon3+'</div><div id="prspd">'+temp3+'<sup>&deg</sup>/'+low3+'<sup>&deg</div>');
+          e5.set('innerHTML', '<div id="prday"> ' +days[2]+'</div><div id="prtext" title="'+texts[2]+'">' +conicons[2]+'</div><div id="prspd">'+temps[2]+'<sup>&deg</sup>/'+lows[2]+'<sup>&deg</div>');
         res5.setHTML(e5);
         
         var e6 = Y.Node.create('<div id="dayid4" class="dayid-1"></div>');
-          e6.set('innerHTML', '<div id="prday"> ' +day4+'</div><div id="prtext" title="'+text4+'">' +conicon4+'</div><div id="prspd">'+temp4+'<sup>&deg</sup>/'+low4+'<sup>&deg</div>');
+          e6.set('innerHTML', '<div id="prday"> ' +days[3]+'</div><div id="prtext" title="'+texts[3]+'">' +conicons[3]+'</div><div id="prspd">'+temps[3]+'<sup>&deg</sup>/'+lows[3]+'<sup>&deg</div>');
         res6.setHTML(e6);
         
         var e7 = Y.Node.create('<div id="dayid5" class="dayid-1"></div>');
-          e7.set('innerHTML', '<div id="prday"> ' +day5+'</div><div id="prtext" title="'+text5+'">' +conicon5+'</div><div id="prspd">'+temp5+'<sup>&deg</sup>/'+low5+'<sup>&deg</div>');
+          e7.set('innerHTML', '<div id="prday"> ' +days[4]+'</div><div id="prtext" title="'+texts[4]+'">' +conicons[4]+'</div><div id="prspd">'+temps[4]+'<sup>&deg</sup>/'+lows[4]+'<sup>&deg</div>');
         res7.setHTML(e7);
-    });
+  
+             });
+             }); 
+
 });
+
+
+    
+}
+
+
+var addlocations;
+function addlocations(event)
+{
+document.getElementById('add1').style.display="block";  
+}
+
+

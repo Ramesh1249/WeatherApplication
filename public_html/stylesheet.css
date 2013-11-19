@@ -1,3 +1,58 @@
+//location and other icons
+@font-face {
+    font-family: 'icomoon';
+    src:url('fonts/icomoon.eot');
+    src:url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.ttf') format('truetype'),
+        url('fonts/icomoon.woff') format('woff'),
+        url('fonts/icomoon.svg#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-search:before {
+    content: "\e600";
+}
+.icon-location:before {
+    content: "\e601";
+}
+.icon-map:before {
+    content: "\e602";
+}
+.icon-earth:before {
+    content: "\e603";
+}
+.icon-cancel-circle:before {
+    content: "\e604";
+}
+.icon-spinner:before {
+    content: "\e605";
+}
+.icon-spinner2:before {
+    content: "\e606";
+}
+.icon-cog:before {
+    content: "\e607";
+}
+
+
+
+//weather icons
+
 @font-face {
 	font-family: 'Climacons-Font';
 	src:url('fonts/climacons-webfont.eot');
@@ -12,8 +67,8 @@
 	font-family: 'Climacons-Font';
 	speak: none;
 	font-style: normal;
-	font-weight: normal
-;	line-height: 1;
+	font-weight: normal;
+	line-height: 1;
 	-webkit-font-smoothing: antialiased;
 }
 .climacon.cloud:before {
@@ -503,13 +558,49 @@ body
     position: absolute;
     width: 125px;
     font-size: 105px;
+    text-align: center;
+}
+#recentloc {
+line-height: 33px;
+font-family: cursive;
+cursor: pointer;
+text-decoration: none;
+color: white;
+display: block;
+}
+#reclocations {
+margin-top: 151px;
+padding-left: 23px;
+background-color: rgb(13, 190, 27);
+width: 108px;
+height: 33px;
+border-radius: 0 12px 12px 0;
+cursor: pointer;
+
+}
+.locatsearch{
+    border: none;
+    background:transparent;
+    font-size: xx-large;
+    width: 290px;  
+    color: rgb(146, 23, 23);
+font-weight: bold;
+padding-top: 5px;
+padding-left: 15px;
+outline: none;
 }
 #locationtext
 {
+    
     color: skyblue;
-    float: left;
-    padding-top: 26px;
-    padding-left: 25px;
+    float: right;
+    padding-top: 200px;
+    padding-right: 23px;
+}
+}
+#locsearch:focus {
+border: 0px;
+outline: none;
 }
 #temptext1 #textcond .climacon.cloud.sun:before {
     font-size: 107px !important;
@@ -533,5 +624,85 @@ body
     position: absolute;
     padding-top: 84px;
     padding-left: 20px;
+
 }
+
+#locationlist {
+background-color: rgba(0,0,0,0.7);
+cursor: pointer;
+position: relative;
+top: -75px;
+margin-top: -6px;
+height: 322px;
+width: 194px;
+
+padding-left: 9px;
+display: none;
+}
+#addloclist {
+margin-top: 16px;
+color: white;
+padding-top: 28px;
+padding-left: 23px;
+}
+#addloc{
+ background-color: rgb(13, 190, 27);
+padding-right: 32px;
+padding-top: 10px;
+padding-left: 32px;
+margin-left: -40px;
+padding-bottom: 10px;
+border-radius: 5px;
+text-align: center;
+opacity: 0.8;
+}
+
+#close{
+    position: relative;
+top: -28px;
+left: 159px;
+}
+#reclocations{
+    display: block;
+}
+#addlocsearch{
+    border: none;
+
+font-size:large;
+width: 168px;
+color: white;
+font-weight: bold;
+padding-top: 5px;
+background-color: rgba(84,84,84,0.8);
+outline: none;
+}
+#add1 {
+margin-left: -28px;
+margin-right: 5px;
+margin-top: 12px;
+display: none;
+}
+
+#add {
+background-color: rgba(84,84,84,0.8);
+padding-right: 5px;
+padding-left: 4px;
+
+padding-bottom: 1px;
+font-size: 25px;
+}
+#errorloc {
+background-color: rgba(255,255,255,0.8);
+color: black;
+margin-right: 667px;
+text-align: center;
+padding-top: 5px;
+padding-bottom: 5px;
+border-radius: 5px;
+position: relative;
+width: 240px;
+top: -248px;
+left: 358px;
+display: none;
+
 

@@ -14,11 +14,34 @@
         
         <div id="weatherbody" class="weather-body">
         <div id="wallpaper" class="wallpaper_back">
-            <div id="locationtext" class="location-text">
-                <label id="locationname">Bangalore</label>
+            <div id="locationsearch" class="location-search"  style="
+    padding-top: 17px ; padding-left: 14px;">
+                <span id="searchbox">
+                    <input type="text" value="" class="locatsearch" id="locsearch" readonly>
+
+                </span>
+             </div>
+              <div id="locationid" class="location-id"></div><div id="txt"></div>
+              <div id="reclocations" class="rec-locations">
+                <a id="recentloc" class="recloc"  onclick="recloc(event)">Locations</a>
+                
+              </div>
+                <div id="locationlist" class="location-list">
+                    <div id="addloclist" class="add-loc-list">
+                        <span id="close" class="closeadd" onclick="locout(event)">x</span>
+                        <span id="addloc" class="add-loc" onfocus="addloc(this)" onclick="addlocations(event)"  ><b> ADD LOCATIONS</b></span>
+                        <div id="add1" class="add-1">
+                        <input id="addlocsearch" class="add-locsearch" type="text" value="search" onclick="this.select()"></input>
+                        <span id="add" class="ad-ser" onclick="add(event)"><b>+</b></span></div>
+                    </div>
+            <ul id="listofloc" class="list-of-loc">   
+
+            </ul>
+            </div>        
+            <div id="errorloc" class="error-search"><label id="texterr">No weather data for this location</label></div>
+        
             </div>
-            <div id="locationid" class="location-id"></div>
-        </div>
+           
         <div id="weatherlist" class="weather-list">
             <div id="present" class="weather-content"></div>
             <div id="dayscon" class="days_con">
