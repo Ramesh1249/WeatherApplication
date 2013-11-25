@@ -583,10 +583,3 @@ function closeloc(eveny)
 
 }
 
-
-
-username=prompt("Please enter your name:");
-localStorage.setItem('favoriteflavor',username);
-var taste = localStorage.getItem('favoriteflavor');
-
-alert(taste);
