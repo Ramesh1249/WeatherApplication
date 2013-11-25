@@ -5,12 +5,14 @@ var recloc;
 function recloc(event){
   document.getElementById('locationlist').style.display="block";
   document.getElementById('reclocations').style.display="none";
+  document.getElementById('locsearch').style.opacity="0";
 }
 var locout;
 function locout(x){
   document.getElementById('locationlist').style.display="none";
   document.getElementById('reclocations').style.display="block";
   document.getElementById('add1').style.display="none"; 
+  document.getElementById('locsearch').style.opacity="1";
 }
 var addloc;
 function addloc(event){
@@ -28,18 +30,23 @@ varaible1=document.getElementById('addlocsearch').value;
 
 
 
+
+
 var tb;
 var add;
 function add(event){
-tb=document.getElementById('addlocsearch').value;
-var c=document.createElement(li);
-c.innerHTML=tb;
-document.getElementById('listofloc').innerHTML=c;
 
-
+  var targ = event.srcElement||event.target;
+  if(targ.tagName=="LI"){
+    
+    var tb=targ.innerHTML;
+    
+  }else{
+    tb=document.getElementById('addlocsearch').value;
+  }
          
-YUI().use('node', 'yql','json-parse', function(Y) { 
- var JSONObject = {
+  YUI().use('node', 'yql','json-parse', function(Y) { 
+  var JSONObject = {
                      "0":{
                               "tags":"rainy",
                              "class":"<i class='climacon tornado'></i>"
@@ -250,8 +257,6 @@ YUI().use('node', 'yql','json-parse', function(Y) {
                              "class":"<i class='climacon snow'></i>"
                           },
 
-
-
                      "44":{
                               "tags":"cloudy",
                              "class":"<i class='climacon cloud'></i>"
@@ -289,73 +294,156 @@ YUI().use('node', 'yql','json-parse', function(Y) {
         res6=Y.one('#day4'),
         res7=Y.one('#day5');
         
-        Y.YQL('select * from geo.places where text="'+tb+'"',function(r){
-      var woeid;
-      var content;
-      if (r.query.results==null) {
-        document.getElementById('locationlist').style.display="block";
-        document.getElementById('errorloc').style.display="block";
-        document.getElementById('reclocations').style.display="none";
-        
-        document.getElementById('addlocsearch').value="search";
-        window.setTimeout(function(){
-document.getElementById('errorloc').style.display="none";},3000);
 
+Y.YQL('select * from geo.places where text="'+tb+'"',function(r){
+  var woeid;
+  var content;
+  if (r.query.results==null) {
+      document.getElementById('locationlist').style.display="block";
+      document.getElementById('errorloc').style.display="block";
+      document.getElementById('reclocations').style.display="none";
 
-      }else
-      {
-        document.getElementById('locationlist').style.display="none";
-document.getElementById('reclocations').style.display="block";
+      document.getElementById('addlocsearch').value="search";
+      window.setTimeout(function(){
+      document.getElementById('errorloc').style.display="none";},3000);
+    }else
+    {
+      document.getElementById('locationlist').style.display="none";
+      document.getElementById('reclocations').style.display="block";
+      document.getElementById('locsearch').style.opacity="1";
+    }
 
-      }
-
-      if(r.query.results.place[0])
-      {
-        woeid = r.query.results.place[0].woeid;
-        if(r.query.results.place[0].admin2!=null)
-        {
-          content=r.query.results.place[0].admin2.content;
-        }
-        else if (r.query.results.place[0].admin1!=null)
-        {
-          content=r.query.results.place[0].admin1.content;
-        }else
-        {
-          woeid = r.query.results.place[0].country.woeid;
-          content = r.query.results.place[0].content;
-        }
-      }
-      else {
-        woeid = r.query.results.place.woeid;
-      }
-
-          
-            
-                 
-
+if(r.query.results.place[0])
+{
+  woeid = r.query.results.place[0].woeid;
+  if(r.query.results.place[0].admin2!=null)
+  {
+    content=r.query.results.place[0].admin2.content;
+  }
+  else if (r.query.results.place[0].admin1!=null)
+  {
+    content=r.query.results.place[0].admin1.content;
+  }else
+  {
+    woeid = r.query.results.place[0].country.woeid;
+    content = r.query.results.place[0].content;
+  }
+}
+else {
+  woeid = r.query.results.place.woeid;
+}
   
-
-    Y.YQL('select * from weather.forecast where woeid=' + woeid+ " and u='c'", function(r) {
-        var e2=Y.Node.create('<div class="mod1"></div>');
-        var date=r.query.results.channel.item.condition.date;
-        var time=date.substring(17,25);
-        var day=date.substring(0,7);
-        var citys=r.query.results.channel.location.city;
         
-        var city=r.query.results.channel.location.region;
-        var country=r.query.results.channel.location.country;
-        var temp=r.query.results.channel.item.condition.temp;
-        var windspeed=r.query.results.channel.wind.speed;
-        //var text=r.query.results.channel.item.condition.text;
-        var textpr=r.query.results.channel.item.condition.text;
-        var codepr=r.query.results.channel.item.condition.code;
-        if(JSONObject[codepr])
-        {
-           var textprs=JSONObject[codepr].class;
-           var textcon=JSONObject[codepr].tags;
-        }
-        document.getElementById('locsearch').value=citys;
+Y.YQL('select * from weather.forecast where woeid=' + woeid+ " and u='c'", function(r) {
+    var e2=Y.Node.create('<div class="mod1"></div>');
+    var date=r.query.results.channel.item.condition.date;
+    var time=date.substring(17,25);
+    var day=date.substring(0,7);
+    var citys=r.query.results.channel.location.city;
+    
+    var city=r.query.results.channel.location.region;
+    var country=r.query.results.channel.location.country;
+    var temp=r.query.results.channel.item.condition.temp;
+    var windspeed=r.query.results.channel.wind.speed;
+    //var text=r.query.results.channel.item.condition.text;
+    var textpr=r.query.results.channel.item.condition.text;
+    var codepr=r.query.results.channel.item.condition.code;
+    if(JSONObject[codepr])
+    {
+       var textprs=JSONObject[codepr].class;
+       var textcon=JSONObject[codepr].tags;
+    }
+    
+var i;
+var img=[];
+var lis =[]; 
+lis=document.getElementsByClassName("listitems");
 
+for(i=0;i<lis.length;i++)
+{
+    img.push(lis[i].innerHTML);
+    var abc=img.push(lis[i].innerHTML);
+    
+
+}
+
+var recurloc= img.indexOf(citys);
+if(recurloc=='-1'){
+ document.getElementById()
+        document.getElementById('locsearch').value=citys;
+        var divnode=document.createElement("div");
+        divnode.setAttribute("id","divloc");
+        var node=document.createElement("LI");
+        var doc=document.getElementById('listofloc');
+        var docs=doc.childNodes.length;
+        node.setAttribute("id","li"+docs);
+        node.setAttribute("class","listitems");
+        var node1=document.createElement("span");
+        node1.innerHTML="x";
+        node1.setAttribute("id","closeloc");
+        node1.setAttribute("class","close-loc");
+        
+        node1.setAttribute("onclick","closeloc(event);")
+        node.setAttribute("onclick","add(event)");
+        var a;        
+        divnode.appendChild(node1);
+        var textnode=document.createTextNode(citys);
+        node.appendChild(textnode);
+        document.getElementById("listofloc").appendChild(divnode);
+        divnode.appendChild(node);
+}else{
+document.getElementById('errorloc').innerHTML="already added";
+document.getElementById('locationlist').style.display="block";
+      document.getElementById('errorloc').style.display="block";
+      document.getElementById('reclocations').style.display="none";
+
+      document.getElementById('addlocsearch').value="search";
+      window.setTimeout(function(){
+      document.getElementById('errorloc').style.display="none";},3000);
+      window.setTimeout(function(){
+      document.getElementById('errorloc').innerHTML="No weather data for this location";},6000);
+      document.getElementById('locsearch').value=citys;
+      document.getElementById('locsearch').style.opacity="0";
+      
+
+}
+
+
+/*
+for(i=0;i<img.length;i++)
+{
+      if(img[i]==citys)
+      {
+        alert("XXXXXXXXXXXXXXX");
+        break;
+      }else{
+        document.getElementById()
+        document.getElementById('locsearch').value=citys;
+        var divnode=document.createElement("div");
+        divnode.setAttribute("id","divloc");
+        var node=document.createElement("LI");
+        var doc=document.getElementById('listofloc');
+        var docs=doc.childNodes.length;
+        node.setAttribute("id","li"+docs);
+        node.setAttribute("class","listitems");
+        var node1=document.createElement("span");
+        node1.innerHTML="x";
+        node1.setAttribute("id","closeloc");
+        node1.setAttribute("class","close-loc");
+        
+        node1.setAttribute("onclick","closeloc(event);")
+        node.setAttribute("onclick","add(event)");
+        var a;        
+        divnode.appendChild(node1);
+        var textnode=document.createTextNode(citys);
+        node.appendChild(textnode);
+        document.getElementById("listofloc").appendChild(divnode);
+        divnode.appendChild(node);
+        alert("helloo");
+        
+      }
+
+}*/
          Y.YQL('select source,photo_id from flickr.photos.sizes where photo_id in (select id from flickr.photos.search where has_geo="true" and tags="'+textcon+'" and woe_id='+woeid+' and api_key="8a976c10ca749ae611e2a3ca9f0e7c9c" and group_id ="1463451@N25") and api_key="8a976c10ca749ae611e2a3ca9f0e7c9c"', function(r) {    
                 if(r.query.results!=null){                    
              var img=r.query.results.size[07].source;
@@ -396,12 +484,14 @@ document.getElementById('reclocations').style.display="block";
         
         for(i=0;i<5;i++){
             
+
             temps.push(r.query.results.channel.item.forecast[i].high);
             
         }
         
         for(i=0;i<5;i++){
             
+
             lows.push(r.query.results.channel.item.forecast[i].low);
             
         }
@@ -416,6 +506,7 @@ document.getElementById('reclocations').style.display="block";
             codes.push(r.query.results.channel.item.forecast[i].code);
             
         }
+
         
        
        // mapping codes..
@@ -478,3 +569,24 @@ document.getElementById('add1').style.display="block";
 }
 
 
+var closeloc;
+function closeloc(eveny)
+{
+  var targ = event.srcElement||event.target;
+  var mytarget;
+  while(targ.tagName.toLowerCase()!="div")
+  {
+    targ=targ.parentNode;
+  }
+  mytarget=targ;
+  mytarget.parentNode.removeChild(mytarget);
+
+}
+
+
+
+username=prompt("Please enter your name:");
+localStorage.setItem('favoriteflavor',username);
+var taste = localStorage.getItem('favoriteflavor');
+
+alert(taste);
