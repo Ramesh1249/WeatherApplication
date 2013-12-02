@@ -6,8 +6,8 @@ Screenshots:
 
 ![screenshot](https://raw.github.com/Ramesh1249/WeatherApplication/master/hyd.jpg)
 
-![screenshot](https://github.com/Ramesh1249/WeatherApplication/blob/master/bnglre.jpg)
+![screenshot](https://raw.github.com/Ramesh1249/WeatherApplication/master/bnglre.jpg)
 
-![screenshot](https://github.com/Ramesh1249/WeatherApplication/blob/master/addloc.jpg) 
+![screenshot](https://raw.github.com/Ramesh1249/WeatherApplication/master/addloc.jpg) 
 
-![screenshot](https://github.com/Ramesh1249/WeatherApplication/blob/master/vsp.jpg)
+![screenshot](https://raw.github.com/Ramesh1249/WeatherApplication/master/vsp.jpg)
